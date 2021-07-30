@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	proto "github.com/tarsidi-danesh/grpc-intro-go/grpc/proto"
+	"github.com/tarsidi-danesh/grpc-intro-go/grpc/proto"
 	"google.golang.org/grpc"
 )
 
@@ -23,7 +23,8 @@ func main() {
 	client := proto.NewGreeterClient(con)
 
 	req := &proto.HelloRequest{
-		Name: "Tarsidi",
+		Name:    "Tarsidi",
+		Address: "Ceger",
 	}
 
 	res, err := client.SayHello(context.Background(), req)

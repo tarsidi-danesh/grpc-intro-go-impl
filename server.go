@@ -13,11 +13,11 @@ import (
 type server struct{}
 
 func (*server) SayHello(ctx context.Context, req *proto.HelloRequest) (*proto.HelloReply, error) {
-	log.Println("receiving request: ", req.Name)
-	requestName := "Hello " + req.Name
+	log.Println("receiving request: ", req.Name, req.Address)
+	responseMessage := "Hello " + req.Name + " from " + req.Address
 
 	response := proto.HelloReply{
-		Message: requestName,
+		Message: responseMessage,
 	}
 
 	return &response, nil
